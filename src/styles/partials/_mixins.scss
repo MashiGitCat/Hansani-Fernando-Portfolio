@@ -1,0 +1,24 @@
+@mixin tablet {
+  @media (min-width: $tablet-breakpoint) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desktop-breakpoint) {
+    @content;
+  }
+}
+@mixin fontRegular {
+  font-family: "MaisonNeue", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+}
+
+@mixin fontHeadings {
+  font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  
+  
+}

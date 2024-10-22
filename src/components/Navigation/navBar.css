@@ -1,0 +1,45 @@
+@font-face {
+  font-family: "MaisonNeue", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  src: url("../../assets/fonts/MaisonNeue-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "NeueHaasDisplayRoman", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  src: url("../../assets/fonts/NeueHaasDisplayRoman.ttf") format("truetype");
+}
+.nav {
+  background-color: #FFFFFF;
+}
+.nav__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+.nav__logo {
+  font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.375rem;
+  line-height: 1;
+  color: #212122;
+}
+.nav__button {
+  background: none;
+  border: none;
+  padding: 5px 5px 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.nav__button__text {
+  font-family: "MaisonNeue", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  font-weight: 300;
+  color: #212122;
+  letter-spacing: 0.05rem;
+}/*# sourceMappingURL=navBar.css.map */

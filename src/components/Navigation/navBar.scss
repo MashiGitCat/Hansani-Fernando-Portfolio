@@ -1,0 +1,38 @@
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+
+.nav {
+  background-color: $white;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  &__logo {
+    @include fontHeadings;
+    font-size: 1.375rem;
+    line-height: 1;
+    color: $light-black;
+  }
+
+  &__button {
+    background: none;
+    border: none;
+    padding: 5px 5px 5px;
+    font-size: 16px;
+    cursor: pointer;
+
+    &__text{
+        @include fontRegular;
+        font-size: 0.9375rem;
+        font-weight: 300;
+        color: $light-black;
+        letter-spacing: 0.05rem;
+    }
+  }
+}
