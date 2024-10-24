@@ -15,18 +15,24 @@
     border-bottom: 1px solid rgba(33, 33, 34, 0.25);
     opacity: 0;
     transform: translateY(-30px);
-    animation: slide-down-navbar 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+    animation: slide-down-navbar 0.6s cubic-bezier(0.215, 0.61, 0.355, 1)
+      forwards;
     transition-delay: 0s;
     transition: opacity 0.8s, transform 0.8s, border-color 0.8s;
+
+    @include media-desktop {
+      justify-content: flex-end;
+    }
   }
   &.nav-animate #logo,
   &.nav-animate .nav__button {
-    animation: slide-down-elements 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+    animation: slide-down-elements 0.6s cubic-bezier(0.215, 0.61, 0.355, 1)
+      forwards;
   }
   &__logo {
     opacity: 0;
     transform: translateY(-30px);
-    animation-delay: 0.2s; // Delay for the logo
+    animation-delay: 0.2s; 
   }
   &__button {
     background: none;
@@ -70,7 +76,6 @@
   line-height: 1;
   color: $light-black;
   transition: transform 0.3s ease;
-  
 }
 
 @keyframes slide-down-elements {
@@ -81,5 +86,11 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@include media-desktop {
+  #logo {
+    display: none;
   }
 }

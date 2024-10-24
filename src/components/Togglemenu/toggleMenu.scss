@@ -12,11 +12,84 @@
   justify-content: space-between;
   align-items: flex-start;
   opacity: 0;
-  border-bottom: 1px solid transparent; 
+  border-bottom: 1px solid transparent;
   transform: translateY(-20px);
   animation: slide-down 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
-  transition: border-color 0.4s cubic-bezier(0.215, 0.61, 0.355, 1); 
+  transition: border-color 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
   transition-delay: 0s;
+
+  @include media-desktop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 1.875rem;
+    align-items: center;
+    z-index: 101;
+    justify-content: space-between;
+    flex-direction: row;
+    border-bottom: none;
+    animation: slide-down-desktop 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+
+    .toggle-menu__list {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 12rem;
+      margin: 0;
+      padding: 0;
+      @include media-desktop {
+        align-items: center;
+      }
+    }
+
+    .toggle-menu__list-items {
+      opacity: 0;
+      transform: translateY(-100px) rotate(-10deg); // Start above with slight rotation
+      animation: items-fall-in 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+      &:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+      &:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      &:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+      &:nth-child(4) {
+        animation-delay: 0.4s;
+      }
+
+      a {
+        font-size: 1.125rem;
+        font-weight: 400;
+        color: $light-black;
+      }
+    }
+
+    .toggle-menu__logo-position {
+      order: -1;
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-right: 2rem;
+      transform: none;
+      animation: none;
+      opacity: 1;
+    }
+
+    .toggle-menu__list-item-close {
+      right: 2rem;
+      top: 2rem;
+      font-size: 1.2rem;
+      order: 2;
+      align-self: center;
+      margin-left: auto;
+      @include media-desktop {
+        font-size: 0.9375rem;
+        letter-spacing: 0.05rem;
+      }
+    }
+  }
 
   &.border-appear {
     border-color: rgba(33, 33, 34, 0.25);
@@ -32,13 +105,11 @@
     margin: 0;
   }
 
-  // Apply faster cascading effect to each menu item
   &__list-items {
     opacity: 0;
     transform: translateY(20px);
     animation: cascade-in 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
 
-    // Stagger the animation for each item with faster delays
     &:nth-child(1) {
       animation-delay: 0.1s;
     }
@@ -78,20 +149,56 @@
   }
 
   &__logo-position {
-    @include fontHeadings;
-    font-size: 1.375rem;
-    line-height: 1;
-    color: $light-black;
     font-weight: 500;
     margin-top: 2rem;
     opacity: 0;
     transform: translateY(20px);
     animation: slide-up-logo 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
     animation-delay: 0.6s;
+    @include media-desktop {
+      margin-top: 0;
+    }
+  }
+
+  &__logo-image-container {
+    margin-top: 0rem;
+  }
+
+  &__close-button-text {
+    @include media-desktop {
+      @include fontRegular;
+      font-size: 0.9375rem;
+      font-weight: 300;
+      color: $light-black;
+      letter-spacing: 0.05rem;
+    }
   }
 }
 
-// Keyframe for the logo sliding up
+// Keyframes for the desktop version sliding down and slanted animation
+@keyframes items-fall-in {
+  from {
+    opacity: 0;
+    transform: translateY(-100px) rotate(-10deg); // Start above with slant
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0); // End in normal position
+  }
+}
+
+// Keyframes for the desktop version menu sliding in from top to bottom
+@keyframes slide-down-desktop {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes slide-up-logo {
   from {
     opacity: 0;
@@ -103,7 +210,6 @@
   }
 }
 
-// Keyframe for the faster cascading effect on menu items
 @keyframes cascade-in {
   from {
     opacity: 0;
@@ -115,7 +221,6 @@
   }
 }
 
-// Keyframe for the slide down animation of the whole menu
 @keyframes slide-down {
   from {
     opacity: 0;
@@ -135,5 +240,30 @@
   to {
     opacity: 0;
     transform: translateY(-20px);
+  }
+}
+
+// Style the toggle-logo
+#toggle-logo {
+  @include fontHeadings;
+  font-size: 1.375rem;
+  line-height: 1;
+  color: $light-black;
+  transition: transform 0.3s ease;
+
+  .logo-image {
+    display: none;
+  }
+
+  @include media-desktop {
+    .logo-text {
+      display: none;
+    }
+
+    .logo-image {
+      display: inline-block;
+      width: 150px;
+      height: 5rem;
+    }
   }
 }

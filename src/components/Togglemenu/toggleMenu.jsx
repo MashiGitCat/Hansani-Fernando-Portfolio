@@ -31,7 +31,7 @@ const Togglemenu = ({ closeMenu }) => {
         </li>
         <li className="toggle-menu__list-items">
           <Link to="/about" onClick={handleClose}>
-            About
+            Profile
           </Link>
         </li>
         <li className="toggle-menu__list-items">
@@ -39,13 +39,28 @@ const Togglemenu = ({ closeMenu }) => {
             Contact
           </Link>
         </li>
-        <li className="toggle-menu__logo-position">Hansani Fernando</li>
+
+        <li id="toggle-logo" className="toggle-menu__logo-position">
+          <span className="logo-text">Hansani Fernando</span>
+          <div>
+            {" "}
+            <div className="toggle-menu__logo-image-container">
+              {" "}
+              <img
+                className="logo-image"
+                src="https://res.cloudinary.com/maheshidevelopments/image/upload/v1729800571/iTtJZ001.svg"
+                alt="Logo"
+              />
+            </div>
+          </div>
+        </li>
       </ul>
-      <ul className="toggle-menu__list">
+      <div> <ul className="toggle-menu__list">
         <li className="toggle-menu__list-item-close" onClick={handleClose}>
           Close
         </li>
-      </ul>
+      </ul></div>
+      
     </div>
   );
 };

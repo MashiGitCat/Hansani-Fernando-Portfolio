@@ -30,6 +30,81 @@
   transition: border-color 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
   transition-delay: 0s;
 }
+@media (min-width: 1280px) {
+  .toggle-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 1.875rem;
+    align-items: center;
+    z-index: 101;
+    justify-content: space-between;
+    flex-direction: row;
+    border-bottom: none;
+    animation: slide-down-desktop 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+  }
+  .toggle-menu .toggle-menu__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 12rem;
+    margin: 0;
+    padding: 0;
+  }
+}
+@media (min-width: 1280px) and (min-width: 1280px) {
+  .toggle-menu .toggle-menu__list {
+    align-items: center;
+  }
+}
+@media (min-width: 1280px) {
+  .toggle-menu .toggle-menu__list-items {
+    opacity: 0;
+    transform: translateY(-100px) rotate(-10deg);
+    animation: items-fall-in 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+  }
+  .toggle-menu .toggle-menu__list-items:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  .toggle-menu .toggle-menu__list-items:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .toggle-menu .toggle-menu__list-items:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  .toggle-menu .toggle-menu__list-items:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+  .toggle-menu .toggle-menu__list-items a {
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: #212122;
+  }
+  .toggle-menu .toggle-menu__logo-position {
+    order: -1;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-right: 2rem;
+    transform: none;
+    animation: none;
+    opacity: 1;
+  }
+  .toggle-menu .toggle-menu__list-item-close {
+    right: 2rem;
+    top: 2rem;
+    font-size: 1.2rem;
+    order: 2;
+    align-self: center;
+    margin-left: auto;
+  }
+}
+@media (min-width: 1280px) and (min-width: 1280px) {
+  .toggle-menu .toggle-menu__list-item-close {
+    font-size: 0.9375rem;
+    letter-spacing: 0.05rem;
+  }
+}
 .toggle-menu.border-appear {
   border-color: rgba(33, 33, 34, 0.25);
 }
@@ -85,12 +160,6 @@
   line-height: 1.6rem;
 }
 .toggle-menu__logo-position {
-  font-family: "Neue Haas Grotesk Display Pro", sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 1.375rem;
-  line-height: 1;
-  color: #212122;
   font-weight: 500;
   margin-top: 2rem;
   opacity: 0;
@@ -98,7 +167,46 @@
   animation: slide-up-logo 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
   animation-delay: 0.6s;
 }
+@media (min-width: 1280px) {
+  .toggle-menu__logo-position {
+    margin-top: 0;
+  }
+}
+.toggle-menu__logo-image-container {
+  margin-top: 0rem;
+}
+@media (min-width: 1280px) {
+  .toggle-menu__close-button-text {
+    font-family: "MaisonNeue", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    font-weight: 300;
+    color: #212122;
+    letter-spacing: 0.05rem;
+  }
+}
 
+@keyframes items-fall-in {
+  from {
+    opacity: 0;
+    transform: translateY(-100px) rotate(-10deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
+}
+@keyframes slide-down-desktop {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 @keyframes slide-up-logo {
   from {
     opacity: 0;
@@ -137,5 +245,27 @@
   to {
     opacity: 0;
     transform: translateY(-20px);
+  }
+}
+#toggle-logo {
+  font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.375rem;
+  line-height: 1;
+  color: #212122;
+  transition: transform 0.3s ease;
+}
+#toggle-logo .logo-image {
+  display: none;
+}
+@media (min-width: 1280px) {
+  #toggle-logo .logo-text {
+    display: none;
+  }
+  #toggle-logo .logo-image {
+    display: inline-block;
+    width: 150px;
+    height: 5rem;
   }
 }/*# sourceMappingURL=toggleMenu.css.map */
