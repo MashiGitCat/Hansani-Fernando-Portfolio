@@ -10,6 +10,12 @@
   font-weight: 500;
   src: url("../../assets/fonts/NeueHaasDisplayRoman.ttf") format("truetype");
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .nav {
   background-color: #FFFFFF;
 }
@@ -18,19 +24,25 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
+  border-bottom: 1px solid rgba(33, 33, 34, 0.25);
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: slide-down-navbar 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+  transition-delay: 0s;
+  transition: opacity 0.8s, transform 0.8s, border-color 0.8s;
+}
+.nav.nav-animate #logo, .nav.nav-animate .nav__button {
+  animation: slide-down-elements 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
 }
 .nav__logo {
-  font-family: "Neue Haas Grotesk Display Pro", sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 1.375rem;
-  line-height: 1;
-  color: #212122;
+  opacity: 0;
+  transform: translateY(-30px);
+  animation-delay: 0.2s;
 }
 .nav__button {
   background: none;
   border: none;
-  padding: 5px 5px 5px;
+  padding: 5px;
   font-size: 16px;
   cursor: pointer;
 }
@@ -42,4 +54,41 @@
   font-weight: 300;
   color: #212122;
   letter-spacing: 0.05rem;
+}
+.nav--open {
+  background-color: #FFFFFF;
+}
+.nav__logo--down {
+  transform: translateY(30px);
+}
+
+@keyframes slide-down-navbar {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+#logo {
+  font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.375rem;
+  line-height: 1;
+  color: #212122;
+  transition: transform 0.3s ease;
+}
+
+@keyframes slide-down-elements {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }/*# sourceMappingURL=navBar.css.map */
